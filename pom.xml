@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.garethahealy</groupId>
+        <artifactId>commons-parent</artifactId>
+        <version>1.0.6</version>
+        <relativePath>../poms/commons-parent</relativePath>
+    </parent>
+    <groupId>com.garethahealy.gatling</groupId>
+    <artifactId>gatling-amq-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+
+    <scm>
+        <connection>scm:git:https://github.com/garethahealy/gatling-amq/tree/master</connection>
+        <developerConnection>scm:git:https://github.com/garethahealy/gatling-amq/tree/master</developerConnection>
+        <url>https://github.com/garethahealy/gatling-amq/tree/master</url>
+    </scm>
+
+    <properties>
+        <!-- JAR versions -->
+        <gatling-version>2.1.6</gatling-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.gatling.highcharts</groupId>
+                <artifactId>gatling-charts-highcharts</artifactId>
+                <version>${gatling-version}</version>
+                <scope>compile</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
