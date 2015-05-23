@@ -22,8 +22,9 @@
     </scm>
 
     <properties>
-        <!-- JAR versions -->
+        <scala-version>2.11.6</scala-version>
         <gatling-version>2.1.6</gatling-version>
+        <activemq-version>5.9.0.redhat-610379</activemq-version>
     </properties>
 
     <modules>
@@ -45,31 +46,60 @@
             <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
-                <!--<executions>
+                <executions>
                     <execution>
                         <phase>test</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
-                        <configuration>
-                            <simulationsFolder>foo</simulationsFolder>
-                        </configuration>
                     </execution>
-                </executions>-->
+                </executions>
             </plugin>
         </plugins>
     </build>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Scala -->
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala-version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-reflect</artifactId>
+                <version>${scala-version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- Gatling -->
             <dependency>
                 <groupId>io.gatling.highcharts</groupId>
                 <artifactId>gatling-charts-highcharts</artifactId>
                 <version>${gatling-version}</version>
                 <scope>compile</scope>
             </dependency>
+
+            <!-- AMQ -->
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-client</artifactId>
+                <version>${activemq-version}</version>
+                <scope>compile</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+        </dependency>
+    </dependencies>
 </project>

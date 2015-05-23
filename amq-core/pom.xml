@@ -12,5 +12,16 @@
     <artifactId>amq-core</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
-    
+
+    <dependencies>
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-client</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
