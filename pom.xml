@@ -35,6 +35,7 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <!-- http://gatling.io/docs/2.1.6/extensions/maven_plugin.html -->
                     <groupId>io.gatling</groupId>
                     <artifactId>gatling-maven-plugin</artifactId>
                     <version>${gatling-version}</version>
@@ -81,6 +82,12 @@
                 <version>${gatling-version}</version>
                 <scope>compile</scope>
             </dependency>
+            <dependency>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-core</artifactId>
+                <version>${gatling-version}</version>
+                <scope>compile</scope>
+            </dependency>
 
             <!-- AMQ -->
             <dependency>
@@ -100,6 +107,11 @@
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-reflect</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-core</artifactId>
         </dependency>
     </dependencies>
 </project>
