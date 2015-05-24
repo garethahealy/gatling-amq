@@ -32,7 +32,6 @@ class TestJmsDsl extends Simulation {
         .protocols(jmsConfig)
 
     def checkBodyTextCorrect(m: Message) = {
-        // this assumes that the service just does an "uppercase" transform on the text
         m match {
             case tm: TextMessage => true
             case _ => false
