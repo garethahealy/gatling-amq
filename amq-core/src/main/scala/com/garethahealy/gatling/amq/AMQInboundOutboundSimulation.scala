@@ -9,14 +9,14 @@ import io.gatling.jms.Predef._
 
 import org.apache.activemq.jndi.ActiveMQInitialContextFactory
 
-class TestJmsDsl extends Simulation {
+class AMQInboundOutboundSimulation extends Simulation {
 
     val jmsConfig = jms
         .connectionFactoryName("ConnectionFactory")
         .url("tcp://localhost:61616")
         .credentials("admin", "admin")
         .contextFactory(classOf[ActiveMQInitialContextFactory].getName)
-        .listenerCount(1)
+        .listenerCount(20)
         .usePersistentDeliveryMode
 
     val scn = scenario("JMS DSL test").repeat(1) {
@@ -28,7 +28,7 @@ class TestJmsDsl extends Simulation {
         )
     }
 
-    setUp(scn.inject(rampUsersPerSec(1) to 1 during (1 second)))
+    setUp(scn.inject(rampUsersPerSec(1) to 5 during (2 minutes)))
         .protocols(jmsConfig)
 
     def checkBodyTextCorrect(m: Message) = {
