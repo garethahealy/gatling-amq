@@ -19,11 +19,11 @@ class AMQInboundOutboundSimulation extends Simulation {
         .listenerCount(20)
         .usePersistentDeliveryMode
 
-    val scn = scenario("JMS DSL test").repeat(1) {
-        exec(jms("req reply testing").reqreply
+    val scn = scenario("Inbound 2minutes of 5 messages").repeat(1) {
+        exec(jms("Inbound Data Request").reqreply
             .queue("inbound")
             .replyQueue("outbound")
-            .textMessage("hello from gatling jms dsl")
+            .textMessage("<inboundRequest/>")
             .check(simpleCheck(checkBodyTextCorrect))
         )
     }
