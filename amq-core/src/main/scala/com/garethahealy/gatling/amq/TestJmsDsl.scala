@@ -28,12 +28,12 @@ class TestJmsDsl extends Simulation {
         )
     }
 
-    setUp(scn.inject(rampUsersPerSec(10) to 1000 during (2 minutes)))
+    setUp(scn.inject(rampUsersPerSec(1) to 1 during (1 second)))
         .protocols(jmsConfig)
 
     def checkBodyTextCorrect(m: Message) = {
         m match {
-            case tm: TextMessage => true
+            case `m` => true
             case _ => false
         }
     }
