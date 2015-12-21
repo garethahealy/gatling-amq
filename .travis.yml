@@ -1,5 +1,5 @@
 language: java
-install: mvn clean install
+install: mvn clean install -Dgatling.skip
 jdk:
   - openjdk7
   - oraclejdk7
