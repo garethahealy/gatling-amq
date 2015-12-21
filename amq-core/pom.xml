@@ -11,7 +11,7 @@
     </parent>
     <artifactId>amq-core</artifactId>
     <packaging>jar</packaging>
-    <name>${project.artifactId}</name>
+    <name>GarethHealy :: Gatling :: AMQ</name>
 
     <dependencies>
         <dependency>

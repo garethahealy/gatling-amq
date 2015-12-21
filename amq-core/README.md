@@ -1,5 +1,4 @@
-amq-core
-=================
+# amq-core
 The project works by 'JMSReplyTo'. If the code base pushes onto another queue as per below, then we need to change it so the message bounces back.
 
 #Original 
