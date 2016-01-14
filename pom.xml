@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.garethahealy</groupId>
-        <artifactId>commons-parent</artifactId>
-        <version>1.0.7</version>
+        <artifactId>plugins-parent</artifactId>
+        <version>1.1.0</version>
         <relativePath/>
     </parent>
     <groupId>com.garethahealy.gatling</groupId>
@@ -25,6 +25,9 @@
         <scala-version>2.11.6</scala-version>
         <gatling-version>2.1.6</gatling-version>
         <activemq-version>5.11.0.redhat-621084</activemq-version>
+
+        <!-- Skip at this level, since gatling will fail -->
+        <gatling.skip>true</gatling.skip>
     </properties>
 
     <modules>
@@ -93,7 +96,6 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-reflect</artifactId>
         </dependency>
-
         <dependency>
             <groupId>io.gatling</groupId>
             <artifactId>gatling-core</artifactId>

@@ -13,6 +13,11 @@
     <packaging>jar</packaging>
     <name>GarethHealy :: Gatling :: AMQ</name>
 
+    <properties>
+        <!-- Activate Gatling -->
+        <gatling.skip>false</gatling.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.gatling.highcharts</groupId>
