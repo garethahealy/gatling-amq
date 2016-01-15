@@ -4,19 +4,14 @@
 
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.garethahealy.gatling</groupId>
+        <groupId>com.garethahealy.gatling-amq</groupId>
         <artifactId>gatling-amq-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
     <artifactId>amq-core</artifactId>
     <packaging>jar</packaging>
-    <name>GarethHealy :: Gatling :: AMQ</name>
-
-    <properties>
-        <!-- Activate Gatling -->
-        <gatling.skip>false</gatling.skip>
-    </properties>
+    <name>GarethHealy :: Gatling AMQ :: AMQ Core</name>
 
     <dependencies>
         <dependency>
@@ -29,24 +24,33 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.gatling</groupId>
-                <artifactId>gatling-maven-plugin</artifactId>
-                <configuration>
-                    <simulationsFolder>src/main/scala/com/garethahealy/gatling/amq</simulationsFolder>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <profiles>
+        <profile>
+            <id>run</id>
+            <properties>
+                <!-- Activate Gatling -->
+                <gatling.skip>false</gatling.skip>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.gatling</groupId>
+                        <artifactId>gatling-maven-plugin</artifactId>
+                        <configuration>
+                            <simulationsFolder>src/main/scala/com/garethahealy/gatling/amq</simulationsFolder>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
