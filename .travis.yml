@@ -1,9 +1,14 @@
+dist: trusty
 language: java
-install: mvn clean install -Dgatling.skip
 jdk:
-  - openjdk7
-  - oraclejdk7
   - oraclejdk8
+install:
+  - java -version && javac -version && mvn -version
+before_script:
+  - mvn dependency:resolve-plugins dependency:resolve
+script:
+  - mvn clean install -Dgpg.skip=true -Dgatling.skip
 cache:
   directories:
   - $HOME/.m2
+  - $HOME/.victims
